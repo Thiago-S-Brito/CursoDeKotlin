@@ -1,3 +1,6 @@
+import java.lang.ArithmeticException
+import java.lang.Exception
+
 /*GLOSARIO (var, val, fun, class, double, String, int, false, true, null, ?:, return, constructor, init, private,
 companion object, const, object, "lateinit", inner)
 
@@ -588,6 +591,7 @@ fun main() {
     // setOf -> mutableSetOf
     // mapOf -> mutableMapOf
 
+/*
 fun main () {
 
     val product = mapOf(
@@ -619,4 +623,49 @@ fun main () {
 
     val users = User.createUsers(10)
     println(users.map { it.last.uppercase() })
+}*/
+
+fun main() {
+    //hierarquia de objetos e exceptions
+
+    val obj: Any = getObject(2)
+//    if (obj is String) {
+//        println(obj.length)
+//    }
+//    else println(obj)
+
+//    val convertido = obj as String
+//    println(convertido.length)
+
+    // opção 1: verificar com if *recomendado para iniciantes
+    // opção 2: verificar com cast
+
+    // EXCEPTION -> EXCEÇÃO
+
+    divide("10", "0")
+
 }
+
+fun divide(x: String, y:String) {
+    try {
+        val a = Integer.parseInt(x)
+        val b = Integer.parseInt(y)
+        println(a / b)
+    }   catch (e: Exception) {
+    }
+        println("Formulario invalido")
+
+
+}
+
+
+
+
+    fun getObject(value: Int): Any {
+        return when(value) {
+            1 -> 1
+            2 -> "Aula"
+            3 -> true
+            else -> 1.0
+        }
+    }
