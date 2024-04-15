@@ -1,6 +1,7 @@
 import java.lang.ArithmeticException
 import java.lang.Exception
 
+
 /*GLOSARIO (var, val, fun, class, double, String, int, false, true, null, ?:, return, constructor, init, private,
 companion object, const, object, "lateinit", inner)
 
@@ -628,7 +629,7 @@ fun main () {
 fun main() {
     //hierarquia de objetos e exceptions
 
-    val obj: Any = getObject(2)
+    //val obj: Any = getObject(2)
 //    if (obj is String) {
 //        println(obj.length)
 //    }
@@ -642,10 +643,11 @@ fun main() {
 
     // EXCEPTION -> EXCEÇÃO
 
-    divide("10", "0")
+    //divide("10", "0")
+
 
 }
-
+/*
 fun divide(x: String, y:String) {
     try {
         val a = Integer.parseInt(x)
@@ -657,15 +659,34 @@ fun divide(x: String, y:String) {
 
 
 }
+ */
 
-
-
-
-    fun getObject(value: Int): Any {
-        return when(value) {
-            1 -> 1
-            2 -> "Aula"
-            3 -> true
-            else -> 1.0
-        }
+fun showView() {
+    try {
+        val res = applyDiscount(100.0, 50)
+        println(res)
+    } catch (e: IllegalArgumentException) {
+        println(e.message)
+        // e depois vou mandar um email para mim informando que muitos usuarios estão querendo aplicar o desconto
     }
+}
+
+fun applyDiscount (price: Double, value: Int) : Double {
+    if (value > 50) {
+        throw IllegalArgumentException("Desconto muito alto")
+    }
+    val discount = value * price / 100
+    return price - discount
+}
+
+
+
+
+//    fun getObject(value: Int): Any {
+//        return when(value) {
+//            1 -> 1
+//            2 -> "Aula"
+//            3 -> true
+//            else -> 1.0
+//        }
+//    }
